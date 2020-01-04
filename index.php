@@ -7,5 +7,12 @@ spl_autoload_register(function ($class) {
     include 'src/' . $class . '.php';
 });
 
-$test = new TestCaseTest('testRunning');
-$test->run();
+function runTest($class, $testName) {
+    echo '-> Running ' . $class . '::' . $testName . PHP_EOL;
+    $test = new $class($testName);
+    $test->run();
+}
+
+runTest(TestCaseTest::class, 'testRunning');
+runTest(TestCaseTest::class, 'testSetUp');
+

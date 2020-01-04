@@ -15,4 +15,11 @@ class TestCaseTest extends TestCase
         assert($test->wasRun);
     }
 
+    public function testSetUp(): void
+    {
+        $test = new WasRun('testMethod');
+        $test->run();
+        assert($test->wasSetUp);
+    }
+
 }
