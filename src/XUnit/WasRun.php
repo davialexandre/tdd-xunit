@@ -14,6 +14,7 @@ class WasRun extends TestCase
 
     public function setUp(): void
     {
+        $this->wasRun = null;
         $this->wasSetUp = 1;
     }
 }

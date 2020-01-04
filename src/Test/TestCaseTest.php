@@ -7,19 +7,23 @@ use XUnit\WasRun;
 
 class TestCaseTest extends TestCase
 {
+    private $test;
+
+    public function setUp(): void
+    {
+        $this->test = new WasRun('testMethod');
+    }
+
     public function testRunning(): void
     {
-        $test = new WasRun('testMethod');
-        assert($test->wasRun === null);
-        $test->run();
-        assert($test->wasRun);
+        $this->test->run();
+        assert($this->test->wasRun);
     }
 
     public function testSetUp(): void
     {
-        $test = new WasRun('testMethod');
-        $test->run();
-        assert($test->wasSetUp);
+        $this->test->run();
+        assert($this->test->wasSetUp);
     }
 
 }
