@@ -15,4 +15,6 @@ function runTest($class, $testName) {
 
 runTest(TestCaseTest::class, 'testTemplateMethod');
 runTest(TestCaseTest::class, 'testResult');
+runTest(TestCaseTest::class, 'testFailedResultFormatting');
+runTest(TestCaseTest::class, 'testFailedResult');
 
