@@ -4,17 +4,15 @@ namespace XUnit;
 
 class WasRun extends TestCase
 {
-    public $wasRun;
-    public $wasSetUp;
+    public $log;
 
     public function testMethod(): void
     {
-        $this->wasRun = 1;
+        $this->log .= 'testMethod';
     }
 
     public function setUp(): void
     {
-        $this->wasRun = null;
-        $this->wasSetUp = 1;
+        $this->log = 'setUp ';
     }
 }

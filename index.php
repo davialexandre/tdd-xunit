@@ -13,6 +13,5 @@ function runTest($class, $testName) {
     $test->run();
 }
 
-runTest(TestCaseTest::class, 'testRunning');
-runTest(TestCaseTest::class, 'testSetUp');
+runTest(TestCaseTest::class, 'testTemplateMethod');
 
