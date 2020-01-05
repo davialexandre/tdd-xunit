@@ -14,4 +14,5 @@ function runTest($class, $testName) {
 }
 
 runTest(TestCaseTest::class, 'testTemplateMethod');
+runTest(TestCaseTest::class, 'testResult');
 

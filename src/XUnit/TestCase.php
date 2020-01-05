@@ -15,11 +15,16 @@ class TestCase
     {
     }
 
-    public function run(): void
+    public function run(): TestResult
     {
+        $result = new TestResult();
+        $result->testStarted();
+
         $this->setUp();
         $this->{$this->name}();
         $this->tearDown();
+
+        return $result;
     }
 
     public function tearDown(): void
