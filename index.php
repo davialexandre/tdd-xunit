@@ -1,20 +1,23 @@
 <?php
 
 use Test\TestCaseTest;
+use XUnit\TestResult;
+use XUnit\TestSuite;
 
 spl_autoload_register(function ($class) {
     $class = str_replace('\\', '//', $class);
     include 'src/' . $class . '.php';
 });
 
-function runTest($class, $testName) {
-    echo '-> Running ' . $class . '::' . $testName . PHP_EOL;
-    $test = new $class($testName);
-    $test->run();
-}
+$suite = new TestSuite();
+$suite->add(new TestCaseTest('testTemplateMethod'));
+$suite->add(new TestCaseTest('testResult'));
+$suite->add(new TestCaseTest('testFailedResultFormatting'));
+$suite->add(new TestCaseTest('testFailedResult'));
+$suite->add(new TestCaseTest('testSuite'));
 
-runTest(TestCaseTest::class, 'testTemplateMethod');
-runTest(TestCaseTest::class, 'testResult');
-runTest(TestCaseTest::class, 'testFailedResultFormatting');
-runTest(TestCaseTest::class, 'testFailedResult');
+$result = new TestResult();
+$suite->run($result);
+
+echo $result->summary();
 

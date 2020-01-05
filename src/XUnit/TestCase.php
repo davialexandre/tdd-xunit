@@ -15,9 +15,8 @@ class TestCase
     {
     }
 
-    public function run(): TestResult
+    public function run(TestResult $result): void
     {
-        $result = new TestResult();
         $result->testStarted();
 
         $this->setUp();
@@ -27,8 +26,6 @@ class TestCase
             $result->testFailed();
         }
         $this->tearDown();
-
-        return $result;
     }
 
     public function tearDown(): void
