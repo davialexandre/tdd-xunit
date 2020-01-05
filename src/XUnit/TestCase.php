@@ -19,5 +19,10 @@ class TestCase
     {
         $this->setUp();
         $this->{$this->name}();
+        $this->tearDown();
+    }
+
+    public function tearDown(): void
+    {
     }
 }

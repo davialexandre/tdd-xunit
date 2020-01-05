@@ -8,11 +8,16 @@ class WasRun extends TestCase
 
     public function testMethod(): void
     {
-        $this->log .= 'testMethod';
+        $this->log .= 'testMethod ';
     }
 
     public function setUp(): void
     {
         $this->log = 'setUp ';
+    }
+
+    public function tearDown(): void
+    {
+        $this->log .= 'tearDown ';
     }
 }
